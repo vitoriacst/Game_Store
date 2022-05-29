@@ -31,6 +31,11 @@
     &-timer
       display: flex
       margin-bottom: 2rem
+      @include base-mixins.mobile
+       flex-wrap: wrap
+       align-self: center
+       justify-content: center
+
     .deal-container-timer
       width: 100px
       height: 100px
@@ -42,6 +47,9 @@
       background-color: variables.$primary-color
       color: variables.$light-color
       margin: 0 1rem
+      @include base-mixins.mobile
+       margin-bottom: 1.5rem
+
 
       &-time
           font-weight: bold

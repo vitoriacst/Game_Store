@@ -3,68 +3,96 @@
 @use 'layout-mixins'
 
 .header
-    background-color: variables.$bg-color
-    &-top
-        background-color: variables.$secondary-bg-color
-        color: variables.$light-color
+  background-color: variables.$bg-color
 
-        &-container
-            @include layout-mixins.center-content
-            padding: .8rem 0
-            span
-                margin-right: 1rem
-            i
-                margin-right: .3rem
-            a
-                color: variables.$light-color
-.main-header
+  &-top
+    background-color: variables.$secondary-bg-color
+    color: variables.$light-color
+
+    @include base-mixins.mobile
+      display: none
+
     &-container
       @include layout-mixins.center-content
-      padding: 1.3rem
+      padding: .8rem 0
 
-      a,span,i
-          color: variables.$light-color
+      span
+        margin-right: 1rem
+
+      i
+        margin-right: .3rem
+
+      a
+        color: variables.$light-color
+
+.main-header
+
+  &-container
+    @include layout-mixins.center-content
+    padding: 1.3rem 0
+
+    @include base-mixins.mobile
+      flex-direction: column
+      align-items: center
+
+    a, span, i
+      color: #FFF
+
     #brand
-        font-weight:900
-        font-size: 3rem
+      font-weight: 900
+      font-size: 3rem
 
-        i
-            color: variables.$primary-color
-            font-size: 2rem
+      i
+        color: variables.$primary-color
+        font-size: 2rem
+
     #search-form
-        display: flex
-        align-items: center
-        justify-content: center
-        width: 45%
+      display: flex
+      align-items: center
+      justify-content: center
+      width: 45%
 
-        input
-            height: 40px
-        #search
-            width: 60%
-            @include layout-mixins.rounded-input
+      @include base-mixins.mobile
+        width: 100%
+        margin: 2rem 0
+
+      input
+        height: 40px
+
+      #search
+        @include layout-mixins.rounded-input
+        width: 60%
+
     .header-actions-menu
-        display: flex
-        align-items: center
+      display: flex
+      align-items: center
 
-        .wishlist-container,.header-cart-container
-           @include layout-mixins.header-icon 
-            
+      .wishlist-container, .header-cart-container
+        @include layout-mixins.header-icon
+
+        @include base-mixins.mobile
+          margin: 1rem
 
 .header-bottom
-    background-color: variables.$light-color
-    border-bottom: 2px solid variables.$section-bg-color
-    border-top: 3px solid variables.$primary-color
-    ul
-        @include layout-mixins.center-content
-        justify-content: left
-        padding: 1rem 0
-        
-        li
-            margin-right: 1.3rem
-            a
-             color: variables.$dark-color
-             border-bottom: 2px solid transparent
+  background-color: variables.$light-color
+  border-bottom: 2px solid variables.$section-bg-color
+  border-top: 3px solid variables.$primary-color
 
-             &:hover
-                color: variables.$primary-color
-                border-color: variables.$primary-color
+  ul
+    @include layout-mixins.center-content
+    justify-content: left
+    padding: 1rem 0
+
+    @include base-mixins.mobile
+      display: none
+
+    li
+      margin-right: 1.3rem
+
+      a
+        color: variables.$dark-color
+        border-bottom: 2px solid transparent
+
+        &:hover
+          color: variables.$primary-color
+          border-color: variables.$primary-color
